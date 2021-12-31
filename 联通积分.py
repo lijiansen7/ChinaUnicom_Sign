@@ -1,9 +1,5 @@
 import requests
 
-key = ''#https://qmsg.zendee.cn/
-qq_num = ''
-cookie_list = ['']
-
 def sign(cookie):
     sign_url = 'http://act.10010.com/SigninApp/signin/daySign'
     headers = {
@@ -31,6 +27,5 @@ def Task(key,qq_num,cookie):
             qmsg = f'https://qmsg.zendee.cn/send/{key}?msg=签到失败&qq_num={qq_num}'
             requests.get(url=qmsg)
 
-def main_handler(event, context,cookie_list=cookie_list,key=key,qq_num=qq_num):
-    for cookie in cookie_list:
-        Task(key,qq_num,cookie)
+for cookie in cookie_list:
+    Task(key,qq_num,cookie)
